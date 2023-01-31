@@ -5,6 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -94,13 +95,25 @@ public class JobData {
      * @return      List of all jobs with at least one field containing the value
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
-
         // load data, if not already loaded
         loadData();
 
-        // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> job = new ArrayList<>();
+
+        for(HashMap<String, String> row : allJobs){
+//            String aSelection = row.get(value);
+
+            for( String key : row.keySet()){
+                String jobs = row.get(key);
+                System.out.println(jobs);
+            }
+        }
+
+        // TODO - implement this method\
+//        System.out.println("find by value printout");
+        return job;
     }
+
 
     /**
      * Read in data from a CSV file and store it in a list
