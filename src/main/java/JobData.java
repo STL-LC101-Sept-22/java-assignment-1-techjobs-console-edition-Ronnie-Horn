@@ -100,12 +100,12 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> job = new ArrayList<>();
 
-        for(HashMap<String, String> row : allJobs){
-//            String aSelection = row.get(value);
-
-            for( String key : row.keySet()){
+        for(HashMap<String, String> row : allJobs) {
+            for (String key : row.keySet()) {
                 String jobs = row.get(key);
-                System.out.println(jobs);
+                if(jobs.toLowerCase().contains(value.toLowerCase())) {
+                    job.add(row);
+                }
             }
         }
 
@@ -113,7 +113,6 @@ public class JobData {
 //        System.out.println("find by value printout");
         return job;
     }
-
 
     /**
      * Read in data from a CSV file and store it in a list
