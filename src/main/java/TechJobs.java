@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -26,6 +23,7 @@ public class TechJobs {
         actionChoices.put("list", "List");
 
         System.out.println("Welcome to LaunchCode's TechJobs App!");
+
 
         // Allow the user to search until they manually quit
         while (true) {
@@ -119,7 +117,27 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (someJobs.isEmpty()) {
+            System.out.print("No Results");
+        }else {
+            for (int i = 0; i < someJobs.size(); i++){
+                System.out.println("\n*****" );
+                for (Map.Entry<String, String> entrySet : someJobs.get(i).entrySet()) {
 
-        System.out.println("printJobs is not implemented yet");
+                    System.out.println(entrySet.getKey() + ": " + entrySet.getValue());
+                }
+                System.out.println("*****");
+            }
+        }
     }
 }
+
+//                System.out.println("*****");
+//                System.out.println(someJobs.get(i).get("location"));
+//                System.out.println(someJobs.get(i).get("position type"));
+//                System.out.println(someJobs.get(i).get("employer"));
+//                System.out.println(someJobs.get(i).get("location"));
+//                System.out.println(someJobs.get(i).get("core competency"));
+//                System.out.println(someJobs.get(i).get("location"));
+//                System.out.println("*****\n");
+//        System.out.println(someJobs);

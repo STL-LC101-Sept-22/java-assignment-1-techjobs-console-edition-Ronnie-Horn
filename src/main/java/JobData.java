@@ -5,6 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -94,12 +95,23 @@ public class JobData {
      * @return      List of all jobs with at least one field containing the value
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
-
         // load data, if not already loaded
         loadData();
 
-        // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> job = new ArrayList<>();
+
+        for(HashMap<String, String> row : allJobs) {
+            for (String key : row.keySet()) {
+                String jobs = row.get(key);
+                if(jobs.toLowerCase().contains(value.toLowerCase())) {
+                    job.add(row);
+                }
+            }
+        }
+
+        // TODO - implement this method\
+//        System.out.println("find by value printout");
+        return job;
     }
 
     /**
